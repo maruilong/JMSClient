@@ -7,6 +7,7 @@ import com.xinyuan.entity.UploadInfo;
 import com.xinyuan.repository.DownLoadRepository;
 import com.xinyuan.service.util.ParamCondition;
 import com.xinyuan.service.util.SelectParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 public class DownloadService extends BaseService<DownLoadRepository, DownloadInfo, Long> {
 
@@ -22,7 +24,7 @@ public class DownloadService extends BaseService<DownLoadRepository, DownloadInf
     private DownloadInfoBak downloadInfoBak;
 
     /**
-     * 修改上传端的状态
+     * 修改下载端的状态
      *
      * @param msgId
      * @param companyId
@@ -30,8 +32,10 @@ public class DownloadService extends BaseService<DownLoadRepository, DownloadInf
      */
     public void updateState(Long msgId, String companyId, Integer state) {
 
+        log.info(msgId + "=======" + companyId);
+
         List<SelectParam> selectParams = new ArrayList<>();
-        selectParams.add(new SelectParam("id", msgId, ParamCondition.EQUAL));
+        selectParams.add(new SelectParam("fileId", msgId, ParamCondition.EQUAL));
         selectParams.add(new SelectParam("companyId", companyId, ParamCondition.EQUAL));
 
         DownloadInfo downloadInfo = getByCondition(selectParams);

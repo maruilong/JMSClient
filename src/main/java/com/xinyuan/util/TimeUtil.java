@@ -35,6 +35,8 @@ public class TimeUtil {
         String current_time = getNowTime();
         //timeSlice
         int current_hour = Integer.parseInt(current_time.substring(11, 13));
+
+        System.out.println(starthour + "----" + endhour + "-----" + current_hour);
         //为跨天时间
         if (starthour > endhour) {
             if ((current_hour >= starthour) || (current_hour < endhour)) {

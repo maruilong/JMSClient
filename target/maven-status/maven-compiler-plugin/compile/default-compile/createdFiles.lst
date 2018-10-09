@@ -1,6 +1,8 @@
 com\xinyuan\handle\HandleHelper.class
+com\xinyuan\handle\FileResolve.class
 com\xinyuan\util\SpringUtil.class
 com\xinyuan\comm\enums\UploadState.class
+com\xinyuan\handle\ContentResolve.class
 com\xinyuan\config\Configuration.class
 com\xinyuan\entity\UploadType.class
 com\xinyuan\config\Constant.class
@@ -29,6 +31,7 @@ com\xinyuan\sender\FileSender.class
 com\xinyuan\exception\FileOperationException.class
 com\xinyuan\service\util\SelectParam.class
 com\xinyuan\util\Sys.class
+com\xinyuan\handle\UploadHelper.class
 com\xinyuan\comm\Helper.class
 com\xinyuan\service\UploadService.class
 com\xinyuan\handle\DataHandler.class
@@ -66,6 +69,7 @@ com\xinyuan\bakrev\RecoverIt.class
 com\xinyuan\config\RabbitMqConfig.class
 com\xinyuan\bakrev\DBRecover.class
 com\xinyuan\repository\BaseJpaRepository.class
+com\xinyuan\web\controller\SendController.class
 com\xinyuan\comm\enums\MessageType.class
 com\xinyuan\config\QueueConfig.class
 com\xinyuan\repository\DownLoadRepository.class

@@ -33,6 +33,8 @@ public class SendCondition {
         if (TimeUtil.compareTime(timeSilce)) {
             flag = true;
         }
+        System.out.println("检测结果 " + flag);
+
         return flag;
     }
 }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ö´ĞĞ½Å±¾¸¨Öú²Ù×÷Àà
+ * æ‰§è¡Œè„šæœ¬è¾…åŠ©æ“ä½œç±»
  *
  * @author shxy
  */
@@ -36,59 +36,63 @@ public class HandleHelper extends Helper {
     private UploadTypeService uploadTypeService;
 
     /**
-     * ½Å±¾ÎÄ¼ş¼¯ºÏ
+     * è„šæœ¬æ–‡ä»¶é›†åˆ
      */
     private List<String> tempScript = new ArrayList<>();
     /**
-     * sqlÎÄ¼ş¼¯ºÏ
+     * sqlæ–‡ä»¶é›†åˆ
      */
     private List<String> tempSql = new ArrayList<>();
 
 
     /**
-     * Ö´ĞĞ½Å±¾
+     * æ‰§è¡Œè„šæœ¬
      *
-     * @param downloadInfo Òª´¦ÀíµÄÎÄ¼şEXECBean
-     * @return boolean ÊÇ·ñÖ´ĞĞ³É¹¦
+     * @param downloadInfo è¦å¤„ç†çš„æ–‡ä»¶EXECBean
+     * @return boolean æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
      * @throws Exception
      */
     public ExeResult executeSQL(DownloadInfo downloadInfo) throws Exception {
         ExeResult returnValue = new ExeResult();
         returnValue.setMsgId(downloadInfo.getFileId());
-
+        returnValue.setCompanyId(downloadInfo.getCompanyId());
         UploadType uploadType = uploadTypeService.get(downloadInfo.getType().longValue());
 
         IHandler handler = Factory.getInstance(uploadType.getClassName());
-        String filePath;
+        List<String> filePathList;
         try {
-            filePath = handler.handle(downloadInfo);
+            filePathList = handler.handle(downloadInfo);
         } catch (Exception e) {
             throw e;
         }
-        //Ã»ÓĞÒªÖ´ĞĞµÄ½Å±¾
-        if (Verify.isNullObject(filePath)) {
-            returnValue.setResult(0);
-        } else { //ÓĞĞèÒªÖ´ĞĞµÄsql½Å±¾
-            String scriptName = this.createScript(filePath);
-            String res = com.xy.util.Command.exec("sh " + scriptName);
-            this.tempScript.add(scriptName);
-            this.tempSql.add(filePath);
-            if (res.indexOf("success") != -1 || res.indexOf("SUCCESS") != -1) {
-                returnValue.setResult(1);
-            } else if (Verify.isNullObject(res)) {
-                returnValue.setResult(2);
-            } else {
-                returnValue.setResult(3);
+        //æ²¡æœ‰è¦æ‰§è¡Œçš„è„šæœ¬
+
+        for (String filePath : filePathList) {
+
+            if (Verify.isNullObject(filePath)) {
+                returnValue.setResult(0);
+            } else { //æœ‰éœ€è¦æ‰§è¡Œçš„sqlè„šæœ¬
+                String scriptName = this.createScript(filePath);
+                String res = com.xy.util.Command.exec("sh " + scriptName);
+                this.tempScript.add(scriptName);
+                this.tempSql.add(filePath);
+                if (res.indexOf("success") != -1 || res.indexOf("SUCCESS") != -1) {
+                    returnValue.setResult(1);
+                } else if (Verify.isNullObject(res)) {
+                    returnValue.setResult(2);
+                } else {
+                    returnValue.setResult(3);
+                }
             }
         }
         return returnValue;
     }
 
     /**
-     * ´´½¨½Å±¾ÎÄ¼ş
+     * åˆ›å»ºè„šæœ¬æ–‡ä»¶
      *
-     * @param filePath sqlÎÄ¼şµÄÈ«Â·¾¶
-     * @return String shÎÄ¼şµÄÈ«Â·¾¶
+     * @param filePath sqlæ–‡ä»¶çš„å…¨è·¯å¾„
+     * @return String shæ–‡ä»¶çš„å…¨è·¯å¾„
      * @throws FileOperationException
      */
     public String createScript(String filePath) throws FileOperationException {
@@ -109,17 +113,12 @@ public class HandleHelper extends Helper {
             scriptFile.createNewFile();
             pw = new PrintWriter(new FileOutputStream(scriptFile));
             pw.println(Constant.SCRIPT_1);
-            String osName = System.getProperties().getProperty("os.name");
-            if (osName.contains("Linux")) {
-                pw.println(Constant.SCRIPT_2 + clientConfig.getLocalOracleHome());
-            }
             pw.println(Constant.SCRIPT_3);
-            pw.println(Constant.SCRIPT_4);
             pw.println(Constant.SCRIPT_5);
             pw.println(Constant.SCRIPT_6 + filePath);
             pw.flush();
         } catch (IOException e) {
-            throw new FileOperationException("´´½¨½Å±¾ÎÄ¼şÊ§°Ü", e);
+            throw new FileOperationException("åˆ›å»ºè„šæœ¬æ–‡ä»¶å¤±è´¥", e);
         } finally {
             if (pw != null) {
                 pw.close();
@@ -129,11 +128,11 @@ public class HandleHelper extends Helper {
     }
 
     /**
-     * »ñÈ¡ÎÄ¼şÈ«Â·¾¶
+     * è·å–æ–‡ä»¶å…¨è·¯å¾„
      *
-     * @param dir      Ä¿Â¼Ãû
-     * @param fileName ÎÄ¼şÃû
-     * @return String ÎÄ¼şÈ«Â·¾¶
+     * @param dir      ç›®å½•å
+     * @param fileName æ–‡ä»¶å
+     * @return String æ–‡ä»¶å…¨è·¯å¾„
      */
     private String getPath(String dir, String fileName) {
         if (dir.endsWith(File.separator)) {
@@ -144,7 +143,7 @@ public class HandleHelper extends Helper {
     }
 
     /**
-     * Çå³ı»ò×ªÒÆÒÑ´¦Àí¹ıµÄÎÄ¼ş
+     * æ¸…é™¤æˆ–è½¬ç§»å·²å¤„ç†è¿‡çš„æ–‡ä»¶
      */
     public void clear() {
         this.move(tempSql, clientConfig.getHistoryDirDownload());

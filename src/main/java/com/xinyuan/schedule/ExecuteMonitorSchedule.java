@@ -51,7 +51,7 @@ public class ExecuteMonitorSchedule {
             List<ExeResult> exeResultList = executeService.handleFile(downloadInfoList);
 
             for (ExeResult exeResult : exeResultList) {
-                if (exeResult.getResult() != 2) {
+                if (exeResult.getResult() == 1) {
 
                     MessageBak messageBak = new MessageBak();
                     messageBak.setMsgType(MessageType.EXECUTED.getType());
@@ -60,7 +60,7 @@ public class ExecuteMonitorSchedule {
                     messageBak.setRecOrExec("1");
                     sendInfo.sendMsgInfo(messageBak);
 
-                    downloadService.updateState(messageBak.getMsgId(), messageBak.getReceiver(), UploadState.EXECUTED.getState());
+                    downloadService.updateState(messageBak.getMsgId(), messageBak.getReceiver(), DownloadState.EXECUTED.getState());
                 }
             }
         }

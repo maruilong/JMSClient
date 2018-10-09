@@ -106,8 +106,10 @@ public class FileCopy {
         }
         for (String path : filePath) {
             File file = new File(path);
+            System.out.println("file:" + file);
+            System.out.println("targetDir" + targetDir);
             if (file.isDirectory()) {
-                copyFileToDir(targetDir + "/" + file.getName(), listFile(file));
+                copyFileToDir(targetDir + File.separator + file.getName(), listFile(file));
             } else {
                 copyFileToDir(targetDir, file, "");
             }
@@ -125,9 +127,9 @@ public class FileCopy {
     public static void copyFileToDir(String targetDir, File file, String newName) throws FileOperationException {
         String newFile = "";
         if (newName != null && !"".equals(newName)) {
-            newFile = targetDir + "/" + newName;
+            newFile = targetDir + File.separator + newName;
         } else {
-            newFile = targetDir + "/" + file.getName();
+            newFile = targetDir + File.separator + file.getName();
         }
         File tFile = new File(newFile);
         copyFile(tFile, file);
@@ -181,7 +183,7 @@ public class FileCopy {
         String[] paths = dir.list();
         String[] files = new String[paths.length];
         for (int i = 0; i < paths.length; i++) {
-            files[i] = absolutPath + "/" + paths[i];
+            files[i] = absolutPath + File.separator + paths[i];
         }
         return files;
     }

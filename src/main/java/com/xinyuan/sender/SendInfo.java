@@ -140,7 +140,6 @@ public class SendInfo {
                 e.printStackTrace();
             }
         }
-        log.info(fileMessage.toString());
     }
 
     /**

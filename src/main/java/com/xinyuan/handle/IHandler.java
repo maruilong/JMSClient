@@ -4,8 +4,10 @@ package com.xinyuan.handle;
 import com.xinyuan.entity.DownloadInfo;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
- * ´¦ÀíÏÂÔØµÃµ½µÄĞÅÏ¢
+ * å¤„ç†ä¸‹è½½å¾—åˆ°çš„ä¿¡æ¯
  *
  * @author shxy
  */
@@ -13,11 +15,11 @@ import org.springframework.stereotype.Component;
 public interface IHandler {
 
     /**
-     * ´¦ÀíÏÂÔØÔØĞÅÏ¢
+     * å¤„ç†ä¸‹è½½è½½ä¿¡æ¯
      *
-     * @param downloadInfo ÏÂÔØµÃµ½µÄĞÅÏ¢¶ÔÏó
-     * @return String ¸Ã½Å±¾°üº¬µÄsqlÎÄ¼şµÄÂ·¾¶
+     * @param downloadInfo ä¸‹è½½å¾—åˆ°çš„ä¿¡æ¯å¯¹è±¡
+     * @return String è¯¥è„šæœ¬åŒ…å«çš„sqlæ–‡ä»¶çš„è·¯å¾„
      * @throws Exception
      */
-    String handle(DownloadInfo downloadInfo) throws Exception;
+    List<String> handle(DownloadInfo downloadInfo) throws Exception;
 }

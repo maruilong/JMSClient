@@ -8,16 +8,11 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Random;
 
-import com.shxy.commmon.Helper;
-import com.shxy.exception.FileOperationException;
-import com.shxy.util.Verify;
 import com.xinyuan.comm.Helper;
 import com.xinyuan.config.ClientConfig;
 import com.xinyuan.exception.FileOperationException;
 import com.xinyuan.util.HashFile;
 import com.xinyuan.util.Verify;
-import com.xy.conf.Configuration;
-import com.xy.util.HashFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -91,7 +86,7 @@ public class UploadHelper extends Helper {
 
     /**
      * @param filePath 文件路径
-     * @return 文件的md5码
+     * @return 文件的md5码 DataHandler
      */
     public String getMD5(String filePath) {
         return HashFile.checkFile(filePath);

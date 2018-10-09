@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ´¦ÀíÒ»°ãsql½Å±¾(°üÀ¨Í¨Öª¸½¼ş)
+ * å¤„ç†ä¸€èˆ¬sqlè„šæœ¬(åŒ…æ‹¬é€šçŸ¥é™„ä»¶)
  *
  * @author shxy
  */
@@ -23,17 +23,18 @@ import java.util.List;
 public class DataHandler extends Helper implements IHandler {
 
     /**
-     * ´¦ÀíÖ´ĞĞÎÄ¼ş
+     * å¤„ç†æ‰§è¡Œæ–‡ä»¶
      *
-     * @param downloadInfo Ö´ĞĞbeanÀà
-     * @return ´¦ÀíºóµÄÎÄ¼şÂ·¾¶
+     * @param downloadInfo æ‰§è¡Œbeanç±»
+     * @return å¤„ç†åçš„æ–‡ä»¶è·¯å¾„
      * @throws Exception
      */
     @Override
-    public String handle(DownloadInfo downloadInfo) throws Exception {
+    public List<String> handle(DownloadInfo downloadInfo) throws Exception {
         ClientConfig clientConfig = SpringUtil.getBean(ClientConfig.class);
 
-        String scriptPath = null;
+        List<String> scriptPathList = new ArrayList<>();
+
         String filePath = downloadInfo.getFilePath();
         File file = new File(filePath);
         String dir;
@@ -47,24 +48,25 @@ public class DataHandler extends Helper implements IHandler {
                 fileName = downloadInfo.getFileName();
                 File commonDir = new File(clientConfig.getWorkDirDownload() + Configuration.common_script + File.separator + downloadInfo.getCompanyId());
                 FileCopy.createFile(commonDir, false);
-                //Ö±½ÓÊÇ½Å±¾ÎÄ¼ş
+                //ç›´æ¥æ˜¯è„šæœ¬æ–‡ä»¶
                 if (fileName.endsWith(".sql")) {
+                    System.out.println(commonDir.getAbsolutePath());
                     FileCopy.copyFileToDir(commonDir.getAbsolutePath(), filePath + fileName);
-                    scriptPath = commonDir.getAbsolutePath() + File.separator + fileName;
-                    //Ñ¹ËõÎÄ¼ş
+                    scriptPathList.add(commonDir.getAbsolutePath() + File.separator + fileName);
+                    //å‹ç¼©æ–‡ä»¶
                 } else if (fileName.endsWith(".zip")) {
                     dirPath = dir + File.separator + fileName + "_" + tmp;
                     File dirFile = new File(dirPath);
                     FileCopy.createFile(dirFile, false);
-                    FileZip.unzip(filePath, dirPath);
+                    FileZip.unzip(filePath+fileName, dirPath);
                     File[] files = dirFile.listFiles();
                     for (File f : files) {
                         if (f.getName().endsWith(".sql")) {
-                            //¿½±´µ½¹¤×÷Ä¿Â¼
+                            //æ‹·è´åˆ°å·¥ä½œç›®å½•
                             FileCopy.copyFileToDir(commonDir.getAbsolutePath(), f.getAbsolutePath());
-                            scriptPath = commonDir.getAbsolutePath() + File.separator + f.getName();
+                            scriptPathList.add(commonDir.getAbsolutePath() + File.separator + f.getName());
                         } else {
-                            //¿½±´µ½¸½¼şÄ¿Â¼
+                            //æ‹·è´åˆ°é™„ä»¶ç›®å½•
                             FileCopy.copyFileToDir(clientConfig.getAttachDirDownload(), f.getAbsolutePath());
                         }
                     }
@@ -78,6 +80,6 @@ public class DataHandler extends Helper implements IHandler {
         } finally {
             this.clear(tmpFile);
         }
-        return scriptPath;
+        return scriptPathList;
     }
 }

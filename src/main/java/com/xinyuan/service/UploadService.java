@@ -5,6 +5,7 @@ import com.xinyuan.entity.UploadInfo;
 import com.xinyuan.repository.UploadRepository;
 import com.xinyuan.service.util.ParamCondition;
 import com.xinyuan.service.util.SelectParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.List;
 /**
  * @author liang
  */
+@Slf4j
 @Service
 public class UploadService extends BaseService<UploadRepository, UploadInfo, Long> {
 
@@ -36,6 +38,10 @@ public class UploadService extends BaseService<UploadRepository, UploadInfo, Lon
         selectParams.add(new SelectParam("companyId", companyId, ParamCondition.EQUAL));
 
         UploadInfo uploadInfo = getByCondition(selectParams);
+
+        if (uploadInfo == null) {
+            log.error(msgId + "-----------------" + companyId);
+        }
         uploadInfo.setIsUpload(1);
         uploadInfo.setUploadTime(new Date());
         uploadInfo.setState(state);
