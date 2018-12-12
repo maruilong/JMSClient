@@ -1,6 +1,5 @@
 package com.xinyuan.entity;
 
-import static javax.persistence.GenerationType.IDENTITY;
 import lombok.Data;
 
 import javax.persistence.Column;

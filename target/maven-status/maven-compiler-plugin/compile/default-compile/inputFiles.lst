@@ -1,5 +1,6 @@
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\config\RabbitMqConfig.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\config\ClientConfig.java
+L:\workspsace\JMSCilent\src\main\java\com\xinyuan\web\controller\SendController.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\entity\UploadType.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\receiver\file\ReceiveInfo.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\Application.java
@@ -66,7 +67,10 @@ L:\workspsace\JMSCilent\src\main\java\com\xinyuan\handle\DataHandler.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\util\Verify.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\bakrev\RecoverIt.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\comm\MessageBak.java
+L:\workspsace\JMSCilent\src\main\java\com\xinyuan\handle\UploadHelper.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\schedule\ExecuteMonitorSchedule.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\util\FileCopy.java
+L:\workspsace\JMSCilent\src\main\java\com\xinyuan\handle\ContentResolve.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\bakrev\DBLock.java
 L:\workspsace\JMSCilent\src\main\java\com\xinyuan\comm\enums\MessageType.java
+L:\workspsace\JMSCilent\src\main\java\com\xinyuan\handle\FileResolve.java

@@ -25,10 +25,6 @@ public class ExecuteService {
 
         Long lastFileId = 0L;
 
-        //1 -1
-        //1001 1
-        //1002 1001
-
         try {
             for (DownloadInfo downloadInfo : downloadInfos) {
                 if (lastFileId.equals(downloadInfo.getFileId())) {
