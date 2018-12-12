@@ -43,7 +43,7 @@ public class SendMessageSchedule {
         //如果满足发送条件
         if (sendCondition.isSend()) {
             //读取备份内容 发送消息
-            sendService.initSend();
+//            sendService.initSend();
 
             //查询新消息 并且发送
             List<SelectParam> selectParams = new ArrayList<>();
