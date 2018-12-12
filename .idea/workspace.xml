@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e87ed796-010f-49d1-a0c0-d10d9dadb163" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xinyuan/entity/UploadInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xinyuan/entity/UploadInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xinyuan/service/ExecuteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xinyuan/service/ExecuteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-ptrb.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-ptrb.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-ptrblocal.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-ptrblocal.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-ptsy.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-ptsy.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-ptsylocal.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-ptsylocal.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-ptrblocal.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-ptrblocal.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-ptsylocal.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-ptsylocal.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -232,11 +222,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application-ptsy.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application-ptsy.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application-ptsy.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+            <state relative-caret-position="90">
+              <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -302,7 +301,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/xinyuan/bakrev/RecoverIt.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinyuan/config/QueueConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinyuan/message/MessageInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinyuan/receiver/message/MessageConsumer.java" />
@@ -353,6 +351,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/application-ptrblocal.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/application-ptrb.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/application-ptsy.properties" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -734,8 +733,16 @@
       <workItem from="1541572816572" duration="28000" />
       <workItem from="1542590158397" duration="2309000" />
       <workItem from="1543397481051" duration="23000" />
-      <workItem from="1544586842319" duration="4534000" />
+      <workItem from="1544586842319" duration="4584000" />
     </task>
+    <task id="LOCAL-00001" summary="配置修改">
+      <created>1544606336118</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1544606336118</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -771,7 +778,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268540000" />
+    <option name="totallyTimeSpent" value="268590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -850,6 +857,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="配置修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="配置修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1032,13 +1043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/client.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1217,8 +1221,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application-ptsy.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        <state relative-caret-position="90">
+          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
         </state>
       </provider>
     </entry>
