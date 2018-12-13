@@ -16,8 +16,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableRabbit
 @EnableScheduling
 @SpringBootApplication
-@EnableAutoConfiguration
-@ComponentScan("com.xinyuan")
 public class Application {
 
     public static void main(String[] args) {
